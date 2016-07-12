@@ -7,7 +7,8 @@ const barkModel =  Bark.Model({
 
 const barkTemplate = Bark.Template`
 	<h2>${'name'}</h2>
-	<img src="${'photo'}" alt="" />`;
+	<img src="${'photo'}" alt="" />
+	<p>${'job.position'}</p>`;
 
 const barkController =  Bark.Controller({
 	model: barkModel,

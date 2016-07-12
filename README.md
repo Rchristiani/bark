@@ -6,6 +6,10 @@ Strictly for learning purposes, implementing a simple MVC framework. Super naive
 
 Cause it will be a little **ruff** around the edges. And when developers look at the code they will say **woof**.
 
+<!-- ## Example -->
+
+<!-- A simple example can be found [here](https://rchristiani.github.io/bark/) -->
+
 ## API
 
 ### `Bark.Model()`
