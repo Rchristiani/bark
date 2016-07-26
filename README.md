@@ -1,5 +1,7 @@
 # Bark 🐶
 
+[![CircleCI](https://circleci.com/gh/Rchristiani/bark.svg?style=svg)](https://circleci.com/gh/Rchristiani/bark)
+
 Strictly for learning purposes, implementing a simple MVC framework. Super naive implementation of the MVC pattern, inspired by Backbone!
 
 ## Why Bark?
