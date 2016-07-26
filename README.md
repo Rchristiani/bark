@@ -10,6 +10,10 @@ Cause it will be a little **ruff** around the edges. And when developers look at
 
 <!-- A simple example can be found [here](https://rchristiani.github.io/bark/) -->
 
+### Browser Support
+
+At this time the support is only for browsers that support `fetch`.
+
 ## API
 
 ### `Bark.Model()`

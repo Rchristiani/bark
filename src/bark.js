@@ -2,7 +2,9 @@
 
 (function(global) {
 
-	let Bark = global.Bark = {};
+	let Bark = {};
+
+	// const fetch = require('node-fetch');
 
 	Bark.VERSION = '0.1.0';
 
@@ -18,10 +20,10 @@
 			fetch(cb) {
 				return new Promise((resolve,reject) => {
 					if(this.url === undefined) {
-						throw 'WOOF: url property is not defined';
+						reject('WOOF: url property is not defined');
 					}
 					return fetch(this.url, {
-						method: 'GET'
+						method: 'GET',
 					})
 					.then((res) => {
 						res.json()
@@ -50,7 +52,19 @@
 		let defaults = {
 			elem: document.body,
 			elemType: 'div',
-			className: ''
+			className: '',
+			events: {}
+		};
+
+		let eventHandler = function(events,element) {
+			//loop through event keys
+			let eventKeys = Object.keys(events);
+			for(let key of eventKeys) {
+				//Apply events.
+				let [eventName, eventSelector] = key.split(' ');
+
+				element.querySelector(eventSelector).addEventListener(eventName,defaults[events[key]]);
+			}
 		};
 
 		Object.assign(defaults,options);
@@ -65,15 +79,16 @@
 					tempElm.className = defaults.className;
 				}
 				tempElm.innerHTML = defaults.template;
+				eventHandler(defaults.events,tempElm);
 				defaults.elem.appendChild(tempElm);
 			}
 		};
 	};
 
-	/*
-		Bark Template
-		@returns string
-	*/ 
+	// /*
+	// 	Bark Template
+	// 	@returns string
+	// */ 
 
 	Bark.Template = function(strings, ...keys) {
 		return function(data) {
@@ -100,12 +115,12 @@
 		}
 	};
 
-	/*
-		Bark Controller
-		@constructor
-		@params {object} options used for controller
-		@returns {object}
-	*/
+	// /*
+	// 	Bark Controller
+	// 	@constructor
+	// 	@params {object} options used for controller
+	// 	@returns {object}
+	// */
 	Bark.Controller = function(options) {
 		let defaults = {
 			init() {
@@ -116,5 +131,6 @@
 		defaults.init();
 		return defaults 
 	};
+	global.Bark = Bark;
 
-})(window);
+})(typeof exports === 'undefined' ? window : exports);

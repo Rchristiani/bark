@@ -8,6 +8,7 @@ const barkModel =  Bark.Model({
 const barkTemplate = Bark.Template`
 	<h2>${'name'}</h2>
 	<img src="${'photo'}" alt="" />
+	<p>${'job.location'}</p>
 	<p>${'job.position'}</p>`;
 
 const barkController =  Bark.Controller({
@@ -19,9 +20,32 @@ const barkController =  Bark.Controller({
 				Bark.View({
 					template: barkTemplate(student),
 					className: 'student',
-					elem: document.querySelector('#app')
+					elem: document.querySelector('#app'),
+					events: {
+						'click h2': 'myClickHandler'
+					},
+					myClickHandler: function() {
+						console.log(this);
+					}
 				}).render();
 			});
 		});
 	}
-})
+});
+
+const headerTemplate = Bark.Template`
+	<ul>
+		<li>2015</li>
+		<li>2016</li>
+	</ul>
+`;
+
+const headerController = Bark.Controller({
+	init() {
+		Bark.View({
+			template: headerTemplate(),
+			elem: document.querySelector('.main-header'),
+			elemType: 'nav'
+		}).render();	
+	}
+});
