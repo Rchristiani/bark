@@ -12,6 +12,24 @@ Cause it will be a little **ruff** around the edges. And when developers look at
 
 <!-- A simple example can be found [here](https://rchristiani.github.io/bark/) -->
 
+## Installation
+
+**Browser**
+
+Download `bark.js` from the `src` folder in this repo and include it on your page.
+
+In your HTML
+`<script src="js/bark.js"></script>`
+
+In your JS
+`const model = Bark.Model({...});`
+
+**npm**
+
+`npm install --save bark-framework`
+
+`const Bark = require('bark-framework');`
+
 ### Browser Support
 
 At this time the support is only for browsers that support `fetch`.
@@ -126,5 +144,5 @@ This method is called when the controller is created. Use this as a place to ini
 
 ### TODO
 
-View events
-Tests
+- Allow templates to take array data.
+
