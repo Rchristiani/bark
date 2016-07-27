@@ -6,7 +6,7 @@
 
 	// const fetch = require('node-fetch');
 
-	Bark.VERSION = '0.1.0';
+	Bark.VERSION = '0.1.1';
 
 	/*
 	*	Bark Model
