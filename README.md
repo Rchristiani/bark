@@ -1,6 +1,6 @@
 # Bark 🐶
 
-[![CircleCI](https://circleci.com/gh/Rchristiani/bark.svg?style=svg)](https://circleci.com/gh/Rchristiani/bark)
+[![NPM version](https://img.shields.io/npm/v/bark-framework.svg?style=flat-square)](https://www.npmjs.com/package/bark-framework) [![CircleCI](https://img.shields.io/circleci/project/Rchristiani/bark.svg?style=flat-square)](https://circleci.com/gh/Rchristiani/bark)
 
 Strictly for learning purposes, implementing a simple MVC framework. Super naive implementation of the MVC pattern, inspired by Backbone!
 
