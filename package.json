@@ -1,8 +1,8 @@
 {
-  "name": "bark-mvc",
+  "name": "bark-framework",
   "version": "0.1.0",
   "description": "A simple, only for learning purposes, mvc framework.",
-  "main": "bark.js",
+  "main": "./src/bark.js",
   "scripts": {
     "test": "gulp test"
   },
@@ -23,12 +23,8 @@
     "isomorphic-fetch": "^2.2.1",
     "jsdom": "9.4.1",
     "jsdom-global": "2.0.0",
-    "mocha-jsdom": "^1.1.0",
     "node-qunit-phantomjs": "^1.4.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
-  },
-  "dependencies": {
-    "node-fetch": "^1.5.3"
   }
 }
