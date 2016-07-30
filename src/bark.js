@@ -96,6 +96,9 @@
 			//function to walk through the object
 			const retrieveNestedData = (key,objData) => {
 				//Split string on keys
+				if(typeof key === 'function') {
+					return key(objData);
+				}
 				let nested = key.split('.');
 				//If there is more than one key
 				if(nested.length > 1) {

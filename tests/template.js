@@ -24,4 +24,16 @@ describe('Template', () => {
 		expect(compiledTemplate).to.match(/Template Test/);
 	});
 
+	it('should render data from an array', () => {
+		const newTemplate = Bark.Template`
+			<div>
+				<h2>${$ => $[0]}</h2>
+			</div>
+		`;
+
+		const compiledTemplate = newTemplate(['Array data test']);
+
+		expect(compiledTemplate).to.match(/Array data test/);
+	});
+
 });

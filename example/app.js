@@ -6,7 +6,7 @@ const barkModel =  Bark.Model({
 
 
 const barkTemplate = Bark.Template`
-	<h2>${'name'}</h2>
+	<h2>${student => student.name}</h2>
 	<img src="${'photo'}" alt="" />
 	<p>${'job.location'}</p>
 	<p>${'job.position'}</p>`;
@@ -37,13 +37,14 @@ const headerTemplate = Bark.Template`
 	<ul>
 		<li>2015</li>
 		<li>2016</li>
+		<li>${$ => $[0]}</li>
 	</ul>
 `;
 
 const headerController = Bark.Controller({
 	init() {
 		Bark.View({
-			template: headerTemplate(),
+			template: headerTemplate(['test']),
 			elem: document.querySelector('.main-header'),
 			elemType: 'nav'
 		}).render();	
