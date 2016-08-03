@@ -2,7 +2,7 @@
 
 const Bark = require('../src/bark.js').Bark;
 const expect = require('chai').expect;
-const jsdom = require('jsdom-global')();
+const jsdom = require('jsdom-global');
 
 describe('Template', () => {
 	
@@ -34,6 +34,18 @@ describe('Template', () => {
 		const compiledTemplate = newTemplate(['Array data test']);
 
 		expect(compiledTemplate).to.match(/Array data test/);
+	});
+
+	it('should accept a mapped array as output', () => {
+		const newTemplate = Bark.Template`
+			<div>
+				<h2>${$ => $.map(el => `<li>${el}</li>`)}</h2>
+			</div>
+		`;
+
+		const compiledTemplate = newTemplate(['data', 'test']);
+
+		expect(compiledTemplate).to.not.match(/\,/);
 	});
 
 });

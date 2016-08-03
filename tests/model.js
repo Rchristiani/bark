@@ -1,7 +1,7 @@
 'use strict'
 const Bark = require('../src/bark.js').Bark;
 const expect = require('chai').expect;
-const jsdom = require('jsdom-global')();
+const jsdom = require('jsdom-global');
 require('isomorphic-fetch');
 
 describe('Bark Model', () => {

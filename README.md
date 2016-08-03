@@ -89,6 +89,32 @@ studentTemplate({
 
 This will produce your new template!
 
+You may also use functions inside of your expressions to get more complex templates. Consider some data like this.
+
+```js
+{
+    name: 'Ryan Christian',
+    photo: 'http://coolheadshot.com/rchristiani.png'
+    projects: ['Built Facebook','Made new cool startup']
+}
+```
+
+We could represent this data in our template like such.
+
+```js
+let studentTemplate = Bark.Template`
+    <h2>${'name'}</h2>
+    <img src="${'photo'}" alt="" />
+    <ul>
+        ${data => data.projects.map(el => `<li>${el}</li>`)}
+    </ul>`
+;
+```
+
+
+
+
+
 ### `Bark.View()`
 
 A Bark View is used to create a reusable view. 

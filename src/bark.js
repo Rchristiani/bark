@@ -62,8 +62,11 @@
 			for(let key of eventKeys) {
 				//Apply events.
 				let [eventName, eventSelector] = key.split(' ');
-
-				element.querySelector(eventSelector).addEventListener(eventName,defaults[events[key]]);
+				let eventElement = element.querySelector(eventSelector);
+				if(!eventElement) {
+					throw new Error('WOOF: No selector for event');
+				}
+				eventElement.addEventListener(eventName,defaults[events[key]]);
 			}
 		};
 
@@ -95,10 +98,13 @@
 			let temp = strings.slice();
 			//function to walk through the object
 			const retrieveNestedData = (key,objData) => {
-				//Split string on keys
+				//If function is passed, call it with the data
 				if(typeof key === 'function') {
-					return key(objData);
+					//Convert anything returned to a string
+					//Replace , if data was a mapped array
+					return key(objData).toString().replace(/\,/,'');
 				}
+				//Split string on keys
 				let nested = key.split('.');
 				//If there is more than one key
 				if(nested.length > 1) {

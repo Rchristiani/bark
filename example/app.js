@@ -37,14 +37,14 @@ const headerTemplate = Bark.Template`
 	<ul>
 		<li>2015</li>
 		<li>2016</li>
-		<li>${$ => $[0]}</li>
+		${data => data.map(item => `<li>${item}</li>`)}
 	</ul>
 `;
 
 const headerController = Bark.Controller({
 	init() {
 		Bark.View({
-			template: headerTemplate(['test']),
+			template: headerTemplate(['test','testing']),
 			elem: document.querySelector('.main-header'),
 			elemType: 'nav'
 		}).render();	
