@@ -112,9 +112,6 @@ let studentTemplate = Bark.Template`
 ```
 
 
-
-
-
 ### `Bark.View()`
 
 A Bark View is used to create a reusable view. 
@@ -152,6 +149,27 @@ What you want to add as a class to the view. _Defaults_ to nothing.
 
 This method is used to render the view on the `elem`.
 
+##### `events`
+
+This is an object where the key is your event and selector, and the value is a function name for the handler. This handler is added to the object passed to `Bark.View`.
+
+```js
+Bark.View({
+    template: studentTemplate({
+        name: 'Ryan Christian',
+        photo: 'http://coolheadshot.com/rchristiani.png'
+    }),
+    className: 'student',
+    elem: document.querySelector('#app'),
+    events: {
+        'click p' : 'clickEvent',
+    },
+    clickEvent() {
+        //Some whatever you need to in here!
+    }
+}).render();
+```
+
 
 ### `Bark.Controller()`
 
@@ -167,8 +185,10 @@ Used to store a `Bark.Model` on.
 
 This method is called when the controller is created. Use this as a place to initialize your application.
 
+Controller needs a LOT of work still.
 
 ### TODO
 
-- Allow templates to take array data.
+Add mechanism to update views when data is updated on a model.
+
 
